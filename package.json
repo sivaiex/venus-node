@@ -1,0 +1,8 @@
+{
+    "name": "venus-node",
+    "description": "Node JS Version of venus Services",
+    "version": "0.1.0",
+    "author": "sivaiex",
+    "dependencies": {},
+    "devDependencies": {}
+}
