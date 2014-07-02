@@ -1,6 +1,6 @@
-api = require('../controllers/studentsController');
+sapi = require('../controllers/studentsController');
 
 module.exports = function(app) {
-	app.get('/students', api.findAll);
+	app.get('/students', sapi.findAll);
 	
 };

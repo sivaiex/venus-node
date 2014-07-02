@@ -1,13 +1,12 @@
 var mongoose = require('mongoose'),
-Students = mongoose.models.Student;
-
+Student = mongoose.model('Student')
   // ALL
   exports.findAll = function (req, res) {
-    Students.find(function(err, creds) {
+	Student.find(function(err, students) {
       if (err) {
         res.json(500, err);
       } else {
-        res.json(creds);
+        res.json(students);
       }
     });
   };
