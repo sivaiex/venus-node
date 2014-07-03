@@ -4,11 +4,11 @@ var fields = {
 	admission : {
 		number : {
 			type : String,
-			required : true
+			required : false
 		},
 		date : {
 			type : Date,
-			required : true
+			required : false
 		},
 		releiving : {
 			type : Date
@@ -26,7 +26,7 @@ var fields = {
 	},
 	dob : {
 		type : Date,
-		required : true
+		required : false
 	},
 	parents : {
 		father : {
@@ -34,7 +34,7 @@ var fields = {
 		},
 		mother : {
 			type : String,
-			required : true
+			required : false
 		}
 	},
 	studyclass : {
@@ -57,7 +57,7 @@ var fields = {
 	},
 	medium : {
 		type : String,
-		required : true
+		required : false
 	}
 
 };
