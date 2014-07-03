@@ -5,6 +5,7 @@
     "private": true,
     "dependencies": {
         "express": "latest",
-        "mongoose": "latest"
+        "mongoose": "latest",
+        "body-parser": "latest"
     }
 }

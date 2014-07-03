@@ -10,5 +10,19 @@ Student = mongoose.model('Student')
       }
     });
   };
+  
+  exports.createStudent = function (req, res) {
+	  console.log("create Student called");
+	  console.log(req);
+	  console.log(req.body);
+	   var student = new Student(req.body);
+		student.save(function(err) {
+	      if (err) {
+	        res.json(500, err);
+	      } else {
+	        res.json(student);
+	      }
+	    });
+	  };
 
  
