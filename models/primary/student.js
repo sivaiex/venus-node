@@ -58,7 +58,35 @@ var fields = {
 	medium : {
 		type : String,
 		required : false
-	}
+	},
+	promotion : {
+		studyclass : {
+			type : String
+		},
+		academicYear : {
+			type : String
+		},
+		promoted : {
+			type : Boolean
+		},
+		reason : {
+			type : String
+		},
+		date : {
+			type : Date
+		},
+		promotedBy : {
+			type : String
+		}
+	},
+	fee : [ {
+		feeid : {
+			type : String
+		},
+		enable : {
+			type : Boolean
+		}
+	} ]
 
 };
 

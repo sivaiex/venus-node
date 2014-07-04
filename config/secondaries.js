@@ -11,7 +11,7 @@ fs.readFile('./config/testcsv', 'utf8', function (err,data) {
   var jsondata = convert(data);
   //console.log(jsondata);
   for(var i=0; i< jsondata.length;i++){
-	    console.log(jsondata[i]);
+	   // console.log(jsondata[i]);
 	}
 });
 
