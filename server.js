@@ -16,8 +16,8 @@ fs.readdirSync(modelsPath).forEach(function(file) {
 
 // Add all the routes here
 
-require('./routes/winesRoute')(app);
-require('./routes/studentsRoute')(app);
+require('./routes/students')(app);
+require('./routes/secondaries')(app);
 
 
 
