@@ -109,14 +109,14 @@ var fields = {
 
 };
 
-var studentSchema = new Schema(fields);
-studentSchema.set('toJSON', {
+var studentMarksSchema = new Schema(fields);
+studentMarksSchema.set('toJSON', {
 	getters : true,
 	setters : true
 })
-studentSchema.set('toObject', {
+studentMarksSchema.set('toObject', {
 	getters : true,
 	setters : true
 })
 
-mongoose.model('Student', studentSchema)
+mongoose.model('StudentMarks', studentMarksSchema)
