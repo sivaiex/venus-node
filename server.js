@@ -15,6 +15,7 @@ app.use(bodyParser.json());
 
 // parse application/vnd.api+json as json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function (req, res, next) {
   console.log(req.body);
