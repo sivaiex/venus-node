@@ -38,6 +38,7 @@ fs.readdirSync(secondaryModelsPath).forEach(function(file) {
 require('./routes/students')(app);
 require('./routes/fees')(app);
 require('./routes/secondaries')(app);
+require('./routes/studyClasses')(app);
 
 //secondariesdata.defaultdata();
 app.listen(3000);

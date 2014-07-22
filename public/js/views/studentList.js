@@ -1,6 +1,5 @@
 window.StudentListView = Backbone.View.extend({
 	
-	template : _.template($('#StudentListView').html()),
 	
     initialize: function () {
         this.render();

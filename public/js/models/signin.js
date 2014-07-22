@@ -1,5 +1,7 @@
-var app = app || {};
-app.Signin = Backbone.Model.extend({
+window.Signin = Backbone.Model.extend({
+	initialize: function () {
+		
+	},
 	defaults : {
 		_id : null,
 		email : "test@test.com",

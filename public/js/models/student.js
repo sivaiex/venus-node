@@ -1,4 +1,3 @@
-var app = app || {};
-app.Student = Backbone.Model.extend({
+window.Student = Backbone.Model.extend({
 
 });

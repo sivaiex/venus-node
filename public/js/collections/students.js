@@ -1,6 +1,6 @@
-var Students = Backbone.Collection.extend({
+window.Students = Backbone.Collection.extend({
 
-	model : app.Student,
+	model :Student,
 
 	initialize : function(models, options) {
 	},

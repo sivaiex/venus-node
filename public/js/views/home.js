@@ -14,7 +14,6 @@ window.HomeView = Backbone.View.extend({
     beforeSignin: function (){
     	
     	alert(this.model.get("email"));
-    	alert(JSON.stringfy(this.model));
     	
     	
     }
