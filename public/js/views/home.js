@@ -14,6 +14,14 @@ window.HomeView = Backbone.View.extend({
     beforeSignin: function (){
     	
     	alert(this.model.get("email"));
+    	var authenticated = true;
+    	// Start history
+        //Backbone.history.start();
+        if(authenticated) {
+    	   app.navigate('admnDashboard',true);
+        }else{
+        	
+        }
     	
     	
     }
