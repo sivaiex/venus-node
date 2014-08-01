@@ -14,13 +14,13 @@ var AppRouter = Backbone.Router.extend({
 
     home: function (id) {
     	var signin = new Signin();
-    	$('#content').html(new HomeView({model: signin}).el);
+    	$('#maincontent').html(new HomeView({model: signin}).el);
       
     },
     
     admnDashboard: function (id) {
     	
-    	$('#content').html(new AdminDashboardView().el);
+    	$('#maincontent').html(new AdminDashboardView().el);
       
     },
 
@@ -28,7 +28,7 @@ var AppRouter = Backbone.Router.extend({
         if (!this.aboutView) {
             this.aboutView = new AboutView();
         }
-        $('#content').html(this.aboutView.el);
+        $('#maincontent').html(this.aboutView.el);
         this.headerView.selectMenuItem('about-menu');
     },
 	
