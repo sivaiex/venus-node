@@ -24,17 +24,17 @@ module.exports = function(app) {
 	// Fee Type
 	app.get('/feeTypes', api.findAllFeeTypes);
 	app.get('/feeType/count', api.countFeeType);
-	app.post('/feeType', api.createFeeType);
+	app.post('/feeTypes', api.createFeeType);
 	
 	// Medium Type
 	app.get('/mediumTypes', api.findAllMediumTypes);
 	app.get('/mediumType/count', api.countMediumType);
-	app.post('/mediumType', api.createMediumType);
+	app.post('/mediumTypes', api.createMediumType);
 	
 	// Photo Type
 	app.get('/photoTypes', api.findAllPhotoTypes);
 	app.get('/photoType/count', api.countPhotoType);
-	app.post('/photoType', api.createPhotoType);
+	app.post('/photoTypes', api.createPhotoType);
 	
 	// Roles
 	app.get('/roles', api.findAllRoles);
@@ -44,16 +44,16 @@ module.exports = function(app) {
 	// Staff Types
 	app.get('/staffTypes', api.findAllStaffTypes);
 	app.get('/staffType/count', api.countStaffType);
-	app.post('/staffType', api.createStaffType);
+	app.post('/staffTypes', api.createStaffType);
 	
 	// Subjects
 	app.get('/subjects', api.findAllSubjects);
-	app.get('/subject/count', api.countSubject);
-	app.post('/subject', api.createSubject);
+	app.get('/subjects/count', api.countSubject);
+	app.post('/subjects', api.createSubject);
 	
 	// Test Types
 	app.get('/testTypes', api.findAllTestTypes);
 	app.get('/testType/count', api.countTestType);
-	app.post('/testType', api.createTestType);
+	app.post('/testTypes', api.createTestType);
 	
 };

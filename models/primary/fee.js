@@ -1,4 +1,6 @@
-var mongoose = require('mongoose'), Schema = mongoose.Schema, ObjectId = Schema.ObjectId;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 
 var fields = {
 	type : {
@@ -12,7 +14,10 @@ var fields = {
 		id : {
 			type : String
 		},
-		section : {
+		name : {
+			type : String
+		},
+		classType : {
 			type : String
 		}
 	},
@@ -33,6 +38,9 @@ var fields = {
 	dueOn : {
 		type : String
 	},
+	status : {
+		type : String
+	}
 
 };
 

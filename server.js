@@ -18,7 +18,6 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(function (req, res, next) {
-  console.log(req.body);
   res.setHeader('Access-Control-Allow-Origin', '*');
   next();
 });
@@ -33,12 +32,17 @@ var secondaryModelsPath = path.join(__dirname, 'models/secondary');
 fs.readdirSync(secondaryModelsPath).forEach(function(file) {
 	require(secondaryModelsPath + '/' + file);
 });
+var complexModelsPath = path.join(__dirname, 'models/complex');
+fs.readdirSync(complexModelsPath).forEach(function(file) {
+	require(complexModelsPath + '/' + file);
+});
 
 // Add all the routes here
 require('./routes/students')(app);
 require('./routes/fees')(app);
 require('./routes/secondaries')(app);
 require('./routes/studyClasses')(app);
+require('./routes/dashboard')(app);
 
 //secondariesdata.defaultdata();
 app.listen(3000);

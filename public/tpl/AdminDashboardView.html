@@ -31,15 +31,6 @@
 		</div>
 	</div>
 	<!-- start: Header -->
-	<script>
-	function callme(id){
-	alert("caled="+id);
-	alert("caled2="+document.getElementById(id));
-	//alert("caled3="+document.getElementById(id).parent());
-	document.getElementById(id).slideToggle();
-	//alert("done");
-	}
-	</script>
 		<div class="container">
 		<div class="row">
 					<!-- start: Main Menu -->
@@ -47,7 +38,7 @@
 				<div class="sidebar-nav nav-collapse collapse navbar-collapse">
 					<ul class="nav nav-tabs nav-stacked main-menu" id="st_staff">
 					    <li class="dropmenu">
-							<a href="javascript:void(0);"onclick="callme('st_staff');"><i class="fa fa-star"></i><span class="hidden-sm"> Students&Staff</span></a>
+							<a href="javascript:void(0)"><i class="fa fa-star"></i><span class="hidden-sm"> Students&Staff</span></a>
 							<ul>
 								<li><a class="submenu" href="icons-font-awesome.html"><i class="fa fa-star"></i><span class="hidden-sm"> School</span></a></li>
 								<li><a class="submenu" href="icons-halflings.html"><i class="fa fa-star"></i><span class="hidden-sm"> Students</span></a></li>
@@ -96,7 +87,7 @@
 				<br>
 				
 			</div>
-				<div class="col-sm-2 col-xs-6">
+				<div class="col-sm-2 col-xs-4">
 					<a class="quick-button">
 						<i class="fa  fa-university"></i>
 						<p>School</p>
@@ -104,27 +95,27 @@
 					</a>
 				</div><!--/col-->
 				
-				<div class="col-sm-2 col-xs-6">
+				<div class="col-sm-2 col-xs-4">
 					<a class="quick-button">
 						<i class="fa  fa-child"></i>
 						<p>Students</p>
-						<span class="notification green">167</span>
+						<span class="notification green"><%= studentCount%></span>
 					</a>
 				</div><!--/col-->
 				
-				<div class="col-sm-2 col-xs-6">
+				<div class="col-sm-2 col-xs-4">
 					<a class="quick-button">
 						<i class="fa  fa-user"></i>
 						<p>Parents</p>
-						<span class="notification green">167</span>
+						<span class="notification green"><%= parentCount%></span>
 					</a>
 				</div><!--/col-->
 				
-				<div class="col-sm-2 col-xs-6">
+				<div class="col-sm-2 col-xs-4">
 					<a class="quick-button">
 						<i class="fa  fa-users"></i>
 						<p>Staff</p>
-						<span class="notification green">167</span>
+						<span class="notification green"><%= staffCount%></span>
 					</a>
 				</div><!--/col-->
 				
@@ -134,34 +125,96 @@
 			
 			<br>
 			
-			<div class="row">
-			<div>
-				<hr>
-				<ul class="breadcrumb">
-					<li><h4>SMS and Email</h4></li>
-				</ul>
-				<br>
+			
+
+      <div class="row">
 				
-			</div>
-			 	<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
-						<i class="fa  fa-group"></i>
-						<p>SMS</p>
-						<span class="notification yellow">2</span>
-					</a>
-				</div>
-				<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
-						<i class="fa  fa-group"></i>
-						<p>Email</p>
-						<span class="notification yellow">2</span>
-					</a>
-				</div>
-				
-			</div><!--/row-->	
-			
-			
-			
+				<div class="col-lg-6">
+					<div class="box">
+						<div class="box-header">
+							<h2><i class="fa fa-align-justify"></i><span class="break"></span>Fee Type</h2>
+							<div class="box-icon">
+								<a href="#feeType" class="btn-close"><i class="fa fa-plus"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-bordered">
+								  <thead>
+									  <tr>
+										  <th>Name</th>
+										  <th>Description</th>
+										  <th>Actions</th>
+									  </tr>
+								  </thead>   
+								  <tbody>
+									<tr>
+										<td>Term fee</td>
+										<td></td>
+										<td>
+										<a class="btn btn-info" href="table.html#">
+											<i class="fa fa-edit "></i>                                            
+										</a>
+										<a class="btn btn-danger" href="table.html#">
+											<i class="fa fa-trash-o "></i> 
+										</a>
+									    </td>
+									</tr>
+								  </tbody>
+							 </table>  
+							
+						</div>
+					</div>
+				</div><!--/col-->
+					
+				<div class="col-lg-6">
+					<div class="box">
+						<div class="box-header">
+							<h2><i class="fa fa-align-justify"></i><span class="break"></span>Fee</h2>
+							<div class="box-icon">
+								<a href="#fee" class="btn-close"><i class="fa fa-plus"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-bordered">
+								  <thead>
+									  <tr>
+										   <th>type</th>
+										  <th>Class</th>
+										  <th>Amount<i class="fa fa-inr"></i></th>
+										  <th>Start Date</th>
+										  <th>End Date</th> 
+										  <th>Frequency</th>
+										  <th>Due On</th>  
+										  <th>Status</th>
+										  <th>Actions</th>                                          
+									  </tr>
+								  </thead>   
+								  <tbody>
+									<tr>
+									    <td>Term fee</td>
+									    <td>2nd class</td>
+									    <td>500</td>
+										<td>04/01/2014</td>
+										<td>06/01/2014</td>
+										<td>Monthly</td>
+										<td>Every Month 10th</td>
+										<td>Active</td>
+										<td>
+										<a class="btn btn-info" href="table.html#">
+											<i class="fa fa-edit "></i>                                            
+										</a>
+										<a class="btn btn-danger" href="table.html#">
+											<i class="fa fa-trash-o "></i> 
+										</a>
+									    </td>
+									</tr>                         
+								  </tbody>
+							 </table>  
+						</div>
+					</div>
+				</div><!--/col-->
+			</div><!--/row-->
+			<br>
 			
 			
 			<div class="row">
@@ -173,31 +226,31 @@
 				<br>
 				
 			</div>
-				<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
+				<div class="col-sm-2 col-xs-3">
+					<a class="quick-button span1">
 						<i class="fa  fa-rupee"></i>
 						<p>Fee</p>
 						<span class="notification red">2</span>
 					</a>
 				</div>
 				
-				<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
-						<i class="fa  fa-group"></i>
+				<div class="col-sm-2 col-xs-3">
+					<a class="quick-button span1">
+						<i class="fa  fa-minus-square-o"></i>
 						<p>Fee Concession</p>
 						<span class="notification red">2</span>
 					</a>
 				</div>
-				<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
-						<i class="fa  fa-group"></i>
+				<div class="col-sm-2 col-xs-3">
+					<a class="quick-button span1">
+						<i class="fa  fa-plus-square-o"></i>
 						<p>Fee Paid Status</p>
 						<span class="notification red">2</span>
 					</a>
 				</div>
-				<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
-						<i class="fa  fa-group"></i>
+				<div class="col-sm-2 col-xs-3">
+					<a class="quick-button span1">
+						<i class="fa  fa-list"></i>
 						<p>Fee Types</p>
 						<span class="notification red">2</span>
 					</a>
@@ -206,7 +259,7 @@
 				
 			</div><!--/row-->	
 			
-			
+			<br>
 			
 			
 			<div class="row">
@@ -218,44 +271,44 @@
 				<br>
 				
 			</div>
-			<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
-						<i class="fa  fa-group"></i>
+			<div class="col-sm-2 col-xs-3">
+					<a class="quick-button span1">
+						<i class="fa  fa-check"></i>
 						<p>Attendance Status</p>
 						<span class="notification">2</span>
 					</a>
 				</div>
 			 
-				<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
-						<i class="fa  fa-group"></i>
+				<div class="col-sm-2 col-xs-3" >
+					<a class="quick-button span1" href="#mediumType">
+						<i class="fa  fa-language"></i>
 						<p>Medium type</p>
 						<span class="notification">2</span>
 					</a>
 				</div>
-				<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
-						<i class="fa  fa-group"></i>
+				<div class="col-sm-2 col-xs-3" >
+					<a class="quick-button span1" href="#classType">
+						<i class="fa  fa-cubes"></i>
 						<p>Class type</p>
 						<span class="notification">2</span>
 					</a>
 				</div>
-				<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
+				<div class="col-sm-2 col-xs-3" >
+					<a class="quick-button span1" href="#staffType">
 						<i class="fa  fa-group"></i>
 						<p>Staff type</p>
 						<span class="notification">2</span>
 					</a>
 				</div>
-				<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
+				<div class="col-sm-2 col-xs-3">
+					<a class="quick-button span1" href="#testType">
 						<i class="fa  fa-group"></i>
 						<p>Test type</p>
 						<span class="notification">2</span>
 					</a>
 				</div>
-				<div class="col-sm-2 col-md-1 col-xs-3">
-					<a class="quick-button-small span1">
+				<div class="col-sm-2 col-xs-3">
+					<a class="quick-button span1" href="#subject">
 						<i class="fa  fa-group"></i>
 						<p>Subjects</p>
 						<span class="notification">2</span>
