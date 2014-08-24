@@ -75,7 +75,9 @@ exports.getAdminDashboard = function(req, res) {
 			if (err) {
 				res.json(500, err);
 			} else {
-				adminDashboard.feeTypes = feeTypes;
+				for (var i=0; i < feeTypes.length; i++) {
+					adminDashboard.feeTypes[i] = feeTypes[i];
+					}
 				returnResponse(adminDashboard);
 			}
 		});

@@ -143,15 +143,11 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>Term fee</td>
-										<td></td>
-										<td><a class="btn btn-info" href="table.html#"> <i
-												class="fa fa-edit "></i>
-										</a> <a class="btn btn-danger" href="table.html#"> <i
-												class="fa fa-trash-o "></i>
-										</a></td>
-									</tr>
+									<script type="text/template">
+									<% _.each(action, function(acs) { %> 
+                                  <a class="btn"><%= label %></a>
+										<% }); %>
+									</script>
 								</tbody>
 							</table>
 
