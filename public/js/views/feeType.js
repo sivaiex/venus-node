@@ -15,12 +15,14 @@ window.FeeTypeView = Backbone.View.extend({
 	},
 
 	saveFeeType : function(e) {
-alert("savefeetype");
+		var id = this.$('input#id').val();
 		var name = this.$('input#name').val();
 		var description = this.$('input#description').val();
-		
 		this.model.set({
 			"name" : name
+		});
+		this.model.set({
+			"id" : id
 		});
 		this.model.set({
 			"description" : description

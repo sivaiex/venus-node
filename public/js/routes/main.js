@@ -4,7 +4,8 @@ var AppRouter = Backbone.Router.extend({
 		"" : "home",
 		"students" : "students",
 		"admnDashboard" : "admnDashboard",
-		"feeType/:id":"feeType",
+		"feeType/:id" : "feeType",
+		"feeType" : "feeType",
 		"fee" : "fee",
 		"subject" : "subject",
 		"testType" : "testType",
@@ -26,9 +27,11 @@ var AppRouter = Backbone.Router.extend({
 	},
 
 	feeType : function(id) {
-		
-		var feeType = new FeeType({id: id});
-		
+
+		var feeType = new FeeType({
+			id : id
+		});
+
 		feeType.fetch({
 			success : function() {
 				$('#maincontent').html(new FeeTypeView({
@@ -36,9 +39,6 @@ var AppRouter = Backbone.Router.extend({
 				}).render().el);
 			}
 		});
-		//$('#maincontent').html(new FeeTypeView({
-			//model : feeType
-		//}).el);
 
 	},
 	testType : function(id) {
@@ -97,8 +97,8 @@ var AppRouter = Backbone.Router.extend({
 });
 
 utils.loadTemplate([ 'HomeView', 'HeaderView', 'AboutView',
-		'AdminDashboardView', 'FeeTypeView', 'FeeView', 'SubjectView','TestTypeView','StaffTypeView' ],
-		function() {
-			app = new AppRouter();
-			Backbone.history.start();
-		});
+		'AdminDashboardView', 'FeeTypeView', 'FeeView', 'SubjectView',
+		'TestTypeView', 'StaffTypeView' ], function() {
+	app = new AppRouter();
+	Backbone.history.start();
+});

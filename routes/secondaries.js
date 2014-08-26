@@ -27,6 +27,7 @@ module.exports = function(app) {
 	app.get('/feeTypes/:id', api.getFeeType);
 	app.del('/feeTypes/:id', api.deleteFeeType);
 	app.post('/feeTypes', api.createFeeType);
+	app.put('/feeTypes', api.createFeeType);
 	
 	// Medium Type
 	app.get('/mediumTypes', api.findAllMediumTypes);
