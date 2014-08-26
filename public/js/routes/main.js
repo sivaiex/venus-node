@@ -26,18 +26,11 @@ var AppRouter = Backbone.Router.extend({
 	},
 
 	feeType : function(id) {
-		alert(id);
-		var feeType = new FeeType({id: '53e6c4382dcf6ddb27d494ce'});
 		
-		alert(feeType);
-		alert(feeType.id);
+		var feeType = new FeeType({id: id});
 		
 		feeType.fetch({
 			success : function() {
-				alert(feeType.id);
-				alert(feeType.name);
-				alert(feeType.description);
-				
 				$('#maincontent').html(new FeeTypeView({
 					model : feeType
 				}).render().el);
