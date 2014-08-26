@@ -23,7 +23,9 @@ module.exports = function(app) {
 	
 	// Fee Type
 	app.get('/feeTypes', api.findAllFeeTypes);
-	app.get('/feeType/count', api.countFeeType);
+	app.get('/feeTypes/count', api.countFeeType);
+	app.get('/feeTypes/:id', api.getFeeType);
+	app.del('/feeTypes/:id', api.deleteFeeType);
 	app.post('/feeTypes', api.createFeeType);
 	
 	// Medium Type

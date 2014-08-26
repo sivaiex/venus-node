@@ -42,14 +42,14 @@
 
 					<li class="dropmenu"><a href="#fee_sc"><span class="hidden-sm">
 								Fees</span></a></li>
-					<li class="dropmenu"><a><span class="hidden-sm">
-								Class</span></a></li>
-					<li class="dropmenu"><a><span class="hidden-sm">
-								Subject</span></a></li>
-					<li class="dropmenu"><a><span class="hidden-sm">
-								Test</span></a></li>
-					<li class="dropmenu"><a><span class="hidden-sm">
-								Staff</span></a></li>
+					<li class="dropmenu"><a href="#class_sc"><span class="hidden-sm">
+								Class Type</span></a></li>
+					<li class="dropmenu"><a href="#subject_sc"><span class="hidden-sm">
+								Subject Type</span></a></li>
+					<li class="dropmenu"><a href="#test_sc"><span class="hidden-sm">
+								Test Type</span></a></li>
+					<li class="dropmenu"><a href="#staff_sc"><span class="hidden-sm">
+								Staff Type</span></a></li>
 
 				</ul>
 			</div>
@@ -65,7 +65,7 @@
 				<div>
 					<hr>
 					<ul class="breadcrumb">
-						<li><h4>Students and Staff</h4></li>
+						<li><h2>Students & Staff</h2></li>
 					</ul>
 					<hr>
 
@@ -116,12 +116,12 @@
 				<div>
 					<hr>
 					<ul class="breadcrumb">
-						<li><h4>Fees</h4></li>
+						<li><h2>Fee Type, Fee Paid Status & Fees</h2></li>
 					</ul>
 					<hr>
-
-
 				</div>
+				
+				<!--  Fee Types Section -->
 				<div class="col-lg-6">
 					<div class="box">
 						<div class="box-header">
@@ -137,17 +137,28 @@
 							<table class="table table-bordered">
 								<thead>
 									<tr>
-										<th>Name</th>
+										<th>Fee Type</th>
 										<th>Description</th>
 										<th>Actions</th>
 									</tr>
 								</thead>
 								<tbody>
-									<script type="text/template">
-									<% _.each(action, function(acs) { %> 
-                                  <a class="btn"><%= label %></a>
-										<% }); %>
-									</script>
+								<% _.each(feeTypes, function(feeType) { %> 
+									<tr>
+										<td>
+								  			<%= feeType.name %>
+										</td>
+										<td>
+											<%= feeType.description %>
+										</td>
+										<td><a class="btn btn-info" href="#feeType/<%= feeType._id%>"> <i
+												class="fa fa-edit "></i>
+										</a> <a class="btn btn-danger" href="table.html#"> <i
+												class="fa fa-trash-o "></i>
+										</a>
+										</td>
+									</tr>
+									<% }); %>
 								</tbody>
 							</table>
 
@@ -155,8 +166,52 @@
 					</div>
 				</div>
 				<!--/col-->
-
+				
+				<!--  Fee Paid Status -->
 				<div class="col-lg-6">
+					<div class="box">
+						<div class="box-header">
+							<h2>
+								<i class="fa fa-align-justify"></i><span class="break"></span>Fee Paid Status
+							</h2>
+							<div class="box-icon">
+								<a href="#feeType" class="btn-close"><i class="fa fa-plus"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Fee Paid Status</th>
+										<th>Description</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								<% _.each(feePaidStatuses, function(feePaidStatus) { %> 
+									<tr>
+										<td>
+								  			<%= feePaidStatus.name %>
+										</td>
+										<td>
+											<%= feePaidStatus.description %>
+										</td>
+										<td><a class="btn btn-info" href="table.html#"> <i
+												class="fa fa-edit "></i>
+										</a> <a class="btn btn-danger" href="table.html#"> <i
+												class="fa fa-trash-o "></i>
+										</a>
+										</td>
+									</tr>
+									<% }); %>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+               <!--  Fee Section -->
+				<div class="col-lg-12">
 					<div class="box">
 						<div class="box-header">
 							<h2>
@@ -182,21 +237,23 @@
 									</tr>
 								</thead>
 								<tbody>
+								<% _.each(fees, function(fee) { %> 
 									<tr>
-										<td>Term fee</td>
-										<td>2nd class</td>
-										<td>500</td>
-										<td>04/01/2014</td>
-										<td>06/01/2014</td>
-										<td>Monthly</td>
-										<td>Every Month 10th</td>
-										<td>Active</td>
+										<td><%= fee.type %></td>
+										<td><%= fee.studyclass.name %></td>
+										<td><%= fee.amount %></td>
+										<td><%= fee.startDate %></td>
+										<td><%= fee.endDate %></td>
+										<td><%= fee.frequency %></td>
+										<td><%= fee.dueOn %></td>
+										<td><%= fee.status %></td>
 										<td><a class="btn btn-info" href="table.html#"> <i
 												class="fa fa-edit "></i>
 										</a> <a class="btn btn-danger" href="table.html#"> <i
 												class="fa fa-trash-o "></i>
 										</a></td>
 									</tr>
+								<% }); %>	
 								</tbody>
 							</table>
 						</div>
@@ -207,93 +264,316 @@
 			<!--/row-->
 			<br>
 
-
-			<div class="row">
+<!--  Class Section -->
+			<div class="row" id="class_sc">
 				<div>
 					<hr>
 					<ul class="breadcrumb">
-						<li><h4>Fee</h4></li>
+						<li><h2>Class Type & Attendance Status</h2></li>
 					</ul>
-					<br>
+					<hr>
+				</div>
+				
+				<!--  Clas Type Section -->
+				<div class="col-lg-6">
+					<div class="box">
+						<div class="box-header">
+							<h2>
+								<i class="fa fa-align-justify"></i><span class="break"></span>Class
+								Type
+							</h2>
+							<div class="box-icon">
+								<a href="#classType" class="btn-close"><i class="fa fa-plus"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Class Type</th>
+										<th>Description</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								<% _.each(feeTypes, function(feeType) { %> 
+									<tr>
+										<td>
+								  			<%= feeType.name %>
+										</td>
+										<td>
+											<%= feeType.description %>
+										</td>
+										<td><a class="btn btn-info" href="table.html#"> <i
+												class="fa fa-edit "></i>
+										</a> <a class="btn btn-danger" href="table.html#"> <i
+												class="fa fa-trash-o "></i>
+										</a>
+										</td>
+									</tr>
+									<% }); %>
+								</tbody>
+							</table>
 
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-2 col-xs-3">
-					<a class="quick-button span1"> <i class="fa  fa-rupee"></i>
-						<p>Fee</p> <span class="notification red">2</span>
-					</a>
-				</div>
+				<!--/col-->
+				
+				<!--  Fee Paid Status -->
+				<div class="col-lg-6">
+					<div class="box">
+						<div class="box-header">
+							<h2>
+								<i class="fa fa-align-justify"></i><span class="break"></span>Attendance Status
+							</h2>
+							<div class="box-icon">
+								<a href="#feeType" class="btn-close"><i class="fa fa-plus"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Attendance Status</th>
+										<th>Description</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								<% _.each(feePaidStatuses, function(feePaidStatus) { %> 
+									<tr>
+										<td>
+								  			<%= feePaidStatus.name %>
+										</td>
+										<td>
+											<%= feePaidStatus.description %>
+										</td>
+										<td><a class="btn btn-info" href="table.html#"> <i
+												class="fa fa-edit "></i>
+										</a> <a class="btn btn-danger" href="table.html#"> <i
+												class="fa fa-trash-o "></i>
+										</a>
+										</td>
+									</tr>
+									<% }); %>
+								</tbody>
+							</table>
 
-				<div class="col-sm-2 col-xs-3">
-					<a class="quick-button span1"> <i class="fa  fa-minus-square-o"></i>
-						<p>Fee Concession</p> <span class="notification red">2</span>
-					</a>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-2 col-xs-3">
-					<a class="quick-button span1"> <i class="fa  fa-plus-square-o"></i>
-						<p>Fee Paid Status</p> <span class="notification red">2</span>
-					</a>
-				</div>
-				<div class="col-sm-2 col-xs-3">
-					<a class="quick-button span1"> <i class="fa  fa-list"></i>
-						<p>Fee Types</p> <span class="notification red">2</span>
-					</a>
-				</div>
-
-
-			</div>
+            </div>
 			<!--/row-->
-
 			<br>
-
-
-			<div class="row">
+			
+			<!--  Subject Section -->
+			<div class="row" id="subject_sc">
 				<div>
 					<hr>
 					<ul class="breadcrumb">
-						<li><h4>Others</h4></li>
+						<li><h2>Subjecta & Medium Type</h2></li>
 					</ul>
-					<br>
+					<hr>
+				</div>
+				
+				<!--  Subjects Section -->
+				<div class="col-lg-6">
+					<div class="box">
+						<div class="box-header">
+							<h2>
+								<i class="fa fa-align-justify"></i><span class="break"></span>Subjects
+							</h2>
+							<div class="box-icon">
+								<a href="#classType" class="btn-close"><i class="fa fa-plus"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Subject</th>
+										<th>Description</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								<% _.each(feeTypes, function(feeType) { %> 
+									<tr>
+										<td>
+								  			<%= feeType.name %>
+										</td>
+										<td>
+											<%= feeType.description %>
+										</td>
+										<td><a class="btn btn-info" href="table.html#"> <i
+												class="fa fa-edit "></i>
+										</a> <a class="btn btn-danger" href="table.html#"> <i
+												class="fa fa-trash-o "></i>
+										</a>
+										</td>
+									</tr>
+									<% }); %>
+								</tbody>
+							</table>
 
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-2 col-xs-3">
-					<a class="quick-button span1"> <i class="fa  fa-check"></i>
-						<p>Attendance Status</p> <span class="notification">2</span>
-					</a>
-				</div>
+				<!--/col-->
+				
+				<!--  Medium Type -->
+				<div class="col-lg-6">
+					<div class="box">
+						<div class="box-header">
+							<h2>
+								<i class="fa fa-align-justify"></i><span class="break"></span>Medium Type
+							</h2>
+							<div class="box-icon">
+								<a href="#feeType" class="btn-close"><i class="fa fa-plus"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Medium</th>
+										<th>Description</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								<% _.each(feePaidStatuses, function(feePaidStatus) { %> 
+									<tr>
+										<td>
+								  			<%= feePaidStatus.name %>
+										</td>
+										<td>
+											<%= feePaidStatus.description %>
+										</td>
+										<td><a class="btn btn-info" href="table.html#"> <i
+												class="fa fa-edit "></i>
+										</a> <a class="btn btn-danger" href="table.html#"> <i
+												class="fa fa-trash-o "></i>
+										</a>
+										</td>
+									</tr>
+									<% }); %>
+								</tbody>
+							</table>
 
-				<div class="col-sm-2 col-xs-3">
-					<a class="quick-button span1" href="#mediumType"> <i
-						class="fa  fa-language"></i>
-						<p>Medium type</p> <span class="notification">2</span>
-					</a>
+						</div>
+					</div>
 				</div>
-				<div class="col-sm-2 col-xs-3">
-					<a class="quick-button span1" href="#classType"> <i
-						class="fa  fa-cubes"></i>
-						<p>Class type</p> <span class="notification">2</span>
-					</a>
-				</div>
-				<div class="col-sm-2 col-xs-3">
-					<a class="quick-button span1" href="#staffType"> <i
-						class="fa  fa-group"></i>
-						<p>Staff type</p> <span class="notification">2</span>
-					</a>
-				</div>
-				<div class="col-sm-2 col-xs-3">
-					<a class="quick-button span1" href="#testType"> <i
-						class="fa  fa-group"></i>
-						<p>Test type</p> <span class="notification">2</span>
-					</a>
-				</div>
-				<div class="col-sm-2 col-xs-3">
-					<a class="quick-button span1" href="#subject"> <i
-						class="fa  fa-group"></i>
-						<p>Subjects</p> <span class="notification">2</span>
-					</a>
-				</div>
-
-			</div>
+            </div>
 			<!--/row-->
+			<br>
+			
+			<!--  Staff Type -->
+			<div class="row" id="staff_sc">
+				<div>
+					<hr>
+					<ul class="breadcrumb">
+						<li><h2>Staff Type & Test Type</h2></li>
+					</ul>
+					<hr>
+				</div>
+				
+				<!--  Subjects Section -->
+				<div class="col-lg-6">
+					<div class="box">
+						<div class="box-header">
+							<h2>
+								<i class="fa fa-align-justify"></i><span class="break"></span>Staff Type
+							</h2>
+							<div class="box-icon">
+								<a href="#classType" class="btn-close"><i class="fa fa-plus"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Staff Type</th>
+										<th>Description</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								<% _.each(feeTypes, function(feeType) { %> 
+									<tr>
+										<td>
+								  			<%= feeType.name %>
+										</td>
+										<td>
+											<%= feeType.description %>
+										</td>
+										<td><a class="btn btn-info" href="table.html#"> <i
+												class="fa fa-edit "></i>
+										</a> <a class="btn btn-danger" href="table.html#"> <i
+												class="fa fa-trash-o "></i>
+										</a>
+										</td>
+									</tr>
+									<% }); %>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<div class="box">
+						<div class="box-header">
+							<h2>
+								<i class="fa fa-align-justify"></i><span class="break"></span>Test Type
+							</h2>
+							<div class="box-icon">
+								<a href="#classType" class="btn-close"><i class="fa fa-plus"></i></a>
+							</div>
+						</div>
+						<div class="box-content">
+							<table class="table table-bordered">
+								<thead>
+									<tr>
+										<th>Test Type</th>
+										<th>Description</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+								<% _.each(feeTypes, function(feeType) { %> 
+									<tr>
+										<td>
+								  			<%= feeType.name %>
+										</td>
+										<td>
+											<%= feeType.description %>
+										</td>
+										<td><a class="btn btn-info" href="table.html#"> <i
+												class="fa fa-edit "></i>
+										</a> <a class="btn btn-danger" href="table.html#"> <i
+												class="fa fa-trash-o "></i>
+										</a>
+										</td>
+									</tr>
+									<% }); %>
+								</tbody>
+							</table>
+
+						</div>
+					</div>
+				</div>
+				<!--/col-->
+		    </div>
+			<!--/row-->
+			<br>
+			
+			
+			<!--/row-->
+			<br>
+			
+			
 
 		</div>
 		<!--/#content.span10-->

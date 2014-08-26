@@ -165,6 +165,29 @@ exports.countFeeType = function(req, res) {
 	});
 };
 
+
+exports.getFeeType = function(req, res) {
+	console.log("find by id");
+	FeeType.findById(req.params.id,function(err, feeType) {
+		if (err) {
+			res.json(500, err);
+		} else {
+			res.json(feeType);
+		}
+	});
+};
+
+exports.deleteFeeType = function(req, res) {
+	FeeType.findById(req.params.id,function(err, feeType) {
+		if (err) {
+			res.json(500, err);
+		} else {
+			feeType.remove();
+			res.json(req.params.id);
+		}
+	});
+};
+
 exports.createFeeType = function(req, res) {
 	var feeType = new FeeType(req.body);
 	feeType.save(function(err) {

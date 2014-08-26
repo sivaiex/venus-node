@@ -4,7 +4,7 @@ var AppRouter = Backbone.Router.extend({
 		"" : "home",
 		"students" : "students",
 		"admnDashboard" : "admnDashboard",
-		"feeType" : "feeType",
+		"feeType/:id":"feeType",
 		"fee" : "fee",
 		"subject" : "subject",
 		"testType" : "testType",
@@ -26,10 +26,26 @@ var AppRouter = Backbone.Router.extend({
 	},
 
 	feeType : function(id) {
-		var feeType = new FeeType();
-		$('#maincontent').html(new FeeTypeView({
-			model : feeType
-		}).el);
+		alert(id);
+		var feeType = new FeeType({id: '53e6c4382dcf6ddb27d494ce'});
+		
+		alert(feeType);
+		alert(feeType.id);
+		
+		feeType.fetch({
+			success : function() {
+				alert(feeType.id);
+				alert(feeType.name);
+				alert(feeType.description);
+				
+				$('#maincontent').html(new FeeTypeView({
+					model : feeType
+				}).render().el);
+			}
+		});
+		//$('#maincontent').html(new FeeTypeView({
+			//model : feeType
+		//}).el);
 
 	},
 	testType : function(id) {
